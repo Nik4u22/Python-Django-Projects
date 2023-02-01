@@ -1,7 +1,9 @@
 # Python-Django-Projects
 
 Projects build using python and Django framework.
+
 Packages needs to install - Python, django, djangorestframework, pillow, sqllite
+
 Software to test REST APIs - Postman
 
 ## Create the project directory
