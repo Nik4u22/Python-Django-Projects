@@ -14,6 +14,7 @@ source /Users/nik4u/miniconda3/bin/activate django_env
 
 ## Install Django and Django REST framework into the virtual environment
 pip install django
+
 pip install djangorestframework
 
 
