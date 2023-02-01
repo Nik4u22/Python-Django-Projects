@@ -26,3 +26,4 @@ pip install django-filter  # Filtering support
 
 ## Project Summary
 1. FirstPro - This is the basic template created using python-django framework.
+2. Django-rest-api - This is the basic REST api framework
