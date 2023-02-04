@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update Employee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+  <body>
+    {% include 'employee/employee_navbar.html' %}
+    <h3 class="text-center my-3"> </h3>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/employee/update-employee/{{employee.employee_id}}" method="POST">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <h3 class="text-center my-4">Update Employee Details</h3>
+                            </div>                        
+                            <div class="mb-3">
+                                <label for="name"> Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Name" id="name" name="employee_name" value="{{employee.name}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="gender"> Gender</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="employee_gender" id="gender1" value="male">
+                                    <label class="form-check-label" for="gender1">
+                                      Male
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="employee_gender" id="gender2" value="female">
+                                    <label class="form-check-label" for="gender2">
+                                      Female
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="employee_gender" id="gender3" value="transgender">
+                                    <label class="form-check-label" for="gender3">
+                                      Transgender
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <textarea class="form-control" id="address" name="employee_address" rows="3">{{employee.address}}</textarea>
+                                  </div>                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="conatct_no"> Contact No</label>
+                                <input type="text" class="form-control" placeholder="Enter Contact No" id="contact_no" name="employee_contact_no" value="{{employee.contact_no}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="designation"> Designation</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="employee_designation" id="designation1" value="Principal">
+                                    <label class="form-check-label" for="designation1">
+                                      Principal
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="employee_designation" id="designation2" value="Vice principal">
+                                    <label class="form-check-label" for="designation2">
+                                      Vice Principal
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="employee_designation" id="designation3" value="Teacher">
+                                    <label class="form-check-label" for="designation3">
+                                      Teacher
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="employee_designation" id="designation4" value="Librarian">
+                                    <label class="form-check-label" for="designation4">
+                                      Librarian
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="employee_designation" id="designation5" value="Peon">
+                                    <label class="form-check-label" for="designation5">
+                                      Peon
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="department"> Department</label>
+                                {% for d in departments %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="employee_department" id="department{{d.department_id}}" value="{{d.department_id}}">
+                                    <label class="form-check-label" for="department{{d.department_id}}">
+                                        {{d.name}}
+                                    </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-success">
+                                    Update Student
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
