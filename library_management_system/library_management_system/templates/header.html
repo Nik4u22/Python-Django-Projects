@@ -1,0 +1,22 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+  <nav class=""bg-primary>
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">iLibrary</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="{% url 'add_book' %}">Add Book</a></li>
+          <li><a href="{% url 'issue_book' %}">Issue Book</a></li>
+          <li><a href="{% url 'renew_book' %}">Renew Book</a></li>
+          <li><a href="{% url 'return_book' %}">Return Book</a></li>
+          <li><a href="{% url 'home' %}">Book List</a></li>
+          <li><a href="{% url 'logout' %}" class="contact-head-logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>

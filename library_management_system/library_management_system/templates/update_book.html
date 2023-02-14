@@ -1,0 +1,42 @@
+{%extends 'base.html' %}
+
+{%block title%} Welcome to Blogs {%endblock%}
+
+{%block content%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/update-book/{{book.book_id}}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <h3 class="text-center my-4">Add Book Details</h3>
+                        </div>          
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Name" id="name" name="book_name" value="{{book.name}}">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Author" id="author" name="book_author" value="{{book.author}}">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Description" id="description" name="book_description" rows="3">{{book.description}}</textarea>
+                              </div>                                
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Choose book Image</label>
+                            <input class="form-control" style="width:50%;" type="file" id="formFile" name="book_image" value="{{book.image}}">
+                        </div>              
+                        <div class="mb-3">
+                            <input class="btn btn-primary" type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

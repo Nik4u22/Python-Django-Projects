@@ -1,0 +1,39 @@
+{%extends 'base.html' %}
+
+{%block title%} Welcome to iLibrary {%endblock%}
+
+{%block content%}
+
+<div class="container">
+    <div class="contact-head-logout">
+        <h5>Welcome {{request.user}}</h5><br>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                {%for book in books %}
+                <div class="row">
+                    <div class="col s12 m3">
+                        <img src="/media/{{book.image}}" class="responsive-image" style="width:100px;height:100px;border-radius:50%;" alt="">
+                    </div>
+                    <div class="col s12 m2">
+                        {{book.name}}
+                    </div>
+                    <div class="col s12 m2">
+                        {{book.author}}
+                    </div>
+                    <div class="col s12 m2">
+                        {{book.is_issued}}
+                    </div>
+                    <div class="col s12 m3">
+                        <a href="/delete-book/{{book.book_id}}" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="/get-book/{{book.book_id}}" class="btn btn-dark btn-sm">Update</a>
+                    </div>
+                </div>
+                {%endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

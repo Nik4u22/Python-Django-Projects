@@ -1,0 +1,50 @@
+{%extends 'base.html' %}
+
+{%block title%} Welcome to Blogs 
+
+{%endblock%}
+
+{%block content%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/return-book/" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <h3 class="text-center my-4">Book Details</h3>
+                        </div>          
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Book Id" id="book_id" name="book_id">
+                        </div>
+                        <div class="mb-3">
+                            <label>Select Date: </label>
+                            <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                <input class="form-control" type="text" id="issue_date" name="issue_date" readonly />
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </div>                                
+                        </div>
+                        <div id="content">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} m-2" id="msg" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            <input class="btn btn-primary" type="submit" value="Return">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
