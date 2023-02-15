@@ -29,3 +29,5 @@ pip install django-filter  # Filtering support
 2. Django-rest-api - This is the basic REST api framework
 3. School management system
 4. Blog management system
+5. Phone book
+6. Library management system - iLibrary
